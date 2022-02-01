@@ -119,7 +119,7 @@ class TraefikMiddlewareReconciler(KubernetesObjectReconciler[TraefikMiddleware])
             ),
             spec=TraefikMiddlewareSpec(
                 forwardAuth=TraefikMiddlewareSpecForwardAuth(
-                    address=f"http://{self.name}.{self.namespace}:9000/akprox/auth/traefik",
+                    address=f"http://{self.name}.{self.namespace}:9000/goauthentik.io/auth/traefik",
                     authResponseHeaders=[
                         "X-authentik-username",
                         "X-authentik-groups",

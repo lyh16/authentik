@@ -126,7 +126,7 @@ class IngressReconciler(KubernetesObjectReconciler[V1Ingress]):
                                         port=V1ServiceBackendPort(name="http"),
                                     ),
                                 ),
-                                path="/akprox",
+                                path="/goauthentik.io",
                                 path_type="ImplementationSpecific",
                             )
                         ]
