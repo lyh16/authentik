@@ -76,6 +76,9 @@ func (a *Application) proxyModifyRequest(ou *url.URL) func(req *http.Request) {
 		claims, _ := a.getClaims(r)
 		r.URL.Scheme = ou.Scheme
 		r.URL.Host = ou.Host
+		defer func() {
+			a.log.WithField("upstream_url", r.URL.String()).Trace("final upstream url")
+		}()
 		if claims.Proxy != nil && claims.Proxy.BackendOverride != "" {
 			u, err := url.Parse(claims.Proxy.BackendOverride)
 			if err != nil {
